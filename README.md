@@ -48,13 +48,13 @@ cat /proc/net/bonding/bond0   # Должен быть MII Status: up и 2 Slave 
 ### 2. Проверка VLAN 100 (CentOS)
 ```bash
 vagrant ssh testClient1
-ping -c 2 10.10.10.1         # Пинг до своего сервера (Server 1) — ОК
-ping -c 2 10.10.10.254       # Пинг соседа (Client 2) — FAIL (изоляция)
+ping -c 2 10.10.10.1         # Пинг до Server 1
+ping -c 2 10.10.10.254       # Пинг Client 2
 ```
 
 ### 3. Проверка VLAN 101 (Ubuntu)
 ```bash
 vagrant ssh testClient2
-ip a show vlan101             # Интерфейс поднят через Netplan
-ping -c 2 10.10.10.1         # Пинг до своего сервера (Server 2) — ОК
+ip a show vlan101            
+ping -c 2 10.10.10.1         # Пинг до Server 2
 ```
