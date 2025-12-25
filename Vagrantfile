@@ -1,7 +1,6 @@
 # -*- mode: ruby -*-
 # vim: set ft=ruby :
 
-# Настройка зеркала для РФ
 ENV['VAGRANT_SERVER_URL'] = 'https://vagrant.elab.pro'
 
 MACHINES = {
