@@ -1,0 +1,68 @@
+- name: Base set up
+  hosts: all
+  become: yes
+  tasks:
+    - name: fix centos 8 repositories
+      shell: |
+        sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+        sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+      when: ansible_os_family == "RedHat"
+
+    - name: update cache (Ubuntu)
+      apt: update_cache=yes
+      when: ansible_os_family == "Debian"
+
+    - name: install software
+      package:
+        name:
+          - vim
+          - tcpdump
+          - net-tools
+        state: present
+
+- name: Set up VLAN on CentOS
+  hosts: centos_vlan
+  become: yes
+  tasks:
+    - name: configure vlan interface
+      template:
+        src: templates/ifcfg-vlan.j2
+        dest: "/etc/sysconfig/network-scripts/ifcfg-eth1.{{ vlan_id }}"
+      notify: restart_nm
+
+  handlers:
+    - name: restart_nm
+      service: name=NetworkManager state=restarted
+
+- name: Set up VLAN on Ubuntu
+  hosts: ubuntu_vlan
+  become: yes
+  tasks:
+    - name: configure vlan netplan
+      template:
+        src: templates/50-cloud-init.yaml.j2
+        dest: /etc/netplan/50-cloud-init.yaml
+    - name: apply netplan
+      shell: netplan apply
+
+- name: Set up Bonding on Routers
+  hosts: inetRouter,centralRouter
+  become: yes
+  tasks:
+    - name: copy eth1/eth2 configs
+      copy:
+        dest: "/etc/sysconfig/network-scripts/ifcfg-{{ item }}"
+        content: |
+          DEVICE={{ item }}
+          ONBOOT=yes
+          BOOTPROTO=none
+          MASTER=bond0
+          SLAVE=yes
+        mode: 0644
+      with_items: [eth1, eth2]
+    - name: configure bond0
+      template:
+        src: templates/ifcfg-bond0.j2
+        dest: /etc/sysconfig/network-scripts/ifcfg-bond0
+    - name: restart network
+      shell: systemctl restart NetworkManager
