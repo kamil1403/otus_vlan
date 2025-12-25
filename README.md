@@ -13,9 +13,12 @@
 ### ✅ Результат
 - [x] Стенд поднимается через `vagrant up`.
 - [x] Bonding и VLAN работают. Результат см. на скриншотах:
-  - 🖼️ [Доступ запрещен](https://github.com/kamil1403/otus_pam/blob/main/screenshots/otus_pam_1.png)
-  - 🖼️ [Доступ разрешен](https://github.com/kamil1403/otus_pam/blob/main/screenshots/otus_pam_2.png)
-
+  - 🖼️ [centralRouter](https://github.com/kamil1403/otus_vlan/blob/main/otus_vlan_centralRouter.png)
+  - 🖼️ [testClient1](https://github.com/kamil1403/otus_vlan/blob/main/otus_vlan_testClient1.png)
+  - 🖼️ [testClient2](https://github.com/kamil1403/otus_vlan/blob/main/otus_vlan_testClient2.png)
+  - 🖼️ [vlan_vagrant](https://github.com/kamil1403/otus_vlan/blob/main/vlan_vagrant.png)
+  - 🖼️ [vlan_VB](https://github.com/kamil1403/otus_vlan/blob/main/otus_vlan_VB.png)
+    
 ---
 
 ## 🧰 Шаг 1 — Инфраструктура
