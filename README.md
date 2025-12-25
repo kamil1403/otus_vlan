@@ -12,7 +12,9 @@
 
 ### ✅ Результат
 - [x] Стенд поднимается через `vagrant up`.
-- [x] Bonding и VLAN работают. Результаты тестов см. на скриншоте 🖼️ [otus_vlan_result.png](otus_vlan_result.png)
+- [x] Bonding и VLAN работают. Результат см. на скриншотах:
+  - 🖼️ [Доступ запрещен](https://github.com/kamil1403/otus_pam/blob/main/screenshots/otus_pam_1.png)
+  - 🖼️ [Доступ разрешен](https://github.com/kamil1403/otus_pam/blob/main/screenshots/otus_pam_2.png)
 
 ---
 
