@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png" alt="VLAN" width="120">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png" alt="WordPress Cluster" width="120">
 </p>
 
-## ![Lesson](https://img.shields.io/badge/Lesson-VLAN_&_LACP-00758F?style=for-the-badge&logo=linux&logoColor=white&labelColor=111827)![Author](https://img.shields.io/badge/Author-Kamil%20Ibragimov-10B981?style=for-the-badge&logo=github&logoColor=white&labelColor=111827)![Date](https://img.shields.io/badge/Date-25.12.2025-F59E0B?style=for-the-badge&logo=calendar&logoColor=white&labelColor=111827)
+## ![Lesson](https://img.shields.io/badge/Lesson-OTUS_PROJECT_WORK-00758F?style=for-the-badge&logo=linux&logoColor=white&labelColor=111827)![Author](https://img.shields.io/badge/Author-Ваше_Имя-10B981?style=for-the-badge&logo=github&logoColor=white&labelColor=111827)![Date](https://img.shields.io/badge/Date-29.12.2025-F59E0B?style=for-the-badge&logo=calendar&logoColor=white&labelColor=111827)
 
 ### 📌 Задание
 1. Развернуть стенд на 7 ВМ (CentOS 8 и Ubuntu 22.04).
